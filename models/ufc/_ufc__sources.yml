@@ -1,0 +1,368 @@
+sources:
+
+  - name: ufc_daniel # name of the source 
+    schema: raw # this is the schema our raw data lives in
+    database: "ufc_daniel_bronze" # this is the name of our database
+
+    quoting:
+      database: false
+      schema: false
+      identifier: false
+
+    tables:
+      - name: event_details
+        description: ""
+        columns:
+          - name: event_id
+            data_type: varchar
+            description: ""
+            data_tests:
+              - not_null
+          - name: fight_id
+            data_type: varchar
+            description: ""
+            data_tests:
+              - unique
+              - not_null
+          - name: date
+            data_type: varchar
+            description: ""
+            data_tests:
+              - not_null
+          - name: location
+            data_type: varchar
+            description: ""
+            data_tests:
+              - not_null
+          - name: winner
+            data_type: varchar
+            description: ""
+            
+          - name: winner_id
+            data_type: varchar
+            description: ""
+            
+
+      - name: fight_details
+        description: ""
+        columns:
+          - name: event_name
+            data_type: varchar
+            description: ""
+          - name: event_id
+            data_type: varchar
+            description: ""
+          - name: fight_id
+            data_type: varchar
+            description: ""
+          - name: r_name
+            data_type: varchar
+            description: ""
+          - name: r_id
+            data_type: varchar
+            description: ""
+          - name: b_name
+            data_type: varchar
+            description: ""
+          - name: b_id
+            data_type: varchar
+            description: ""
+          - name: division
+            data_type: varchar
+            description: ""
+          - name: title_fight
+            data_type: number
+            description: ""
+          - name: method
+            data_type: varchar
+            description: ""
+          - name: finish_round
+            data_type: number
+            description: ""
+          - name: match_time_sec
+            data_type: number
+            description: ""
+          - name: total_rounds
+            data_type: number
+            description: ""
+          - name: referee
+            data_type: varchar
+            description: ""
+          - name: r_kd
+            data_type: number
+            description: ""
+          - name: r_sig_str_landed
+            data_type: float
+            description: ""
+          - name: r_sig_str_atmpted
+            data_type: float
+            description: ""
+          - name: r_sig_str_acc
+            data_type: float
+            description: ""
+          - name: r_total_str_landed
+            data_type: float
+            description: ""
+          - name: r_total_str_atmpted
+            data_type: float
+            description: ""
+          - name: r_total_str_acc
+            data_type: float
+            description: ""
+          - name: r_td_landed
+            data_type: float
+            description: ""
+          - name: r_td_atmpted
+            data_type: float
+            description: ""
+          - name: r_td_acc
+            data_type: float
+            description: ""
+          - name: r_sub_att
+            data_type: float
+            description: ""
+          - name: r_ctrl
+            data_type: float
+            description: ""
+          - name: r_head_landed
+            data_type: float
+            description: ""
+          - name: r_head_atmpted
+            data_type: float
+            description: ""
+          - name: r_head_acc
+            data_type: float
+            description: ""
+          - name: r_body_landed
+            data_type: float
+            description: ""
+          - name: r_body_atmpted
+            data_type: float
+            description: ""
+          - name: r_body_acc
+            data_type: float
+            description: ""
+          - name: r_leg_landed
+            data_type: float
+            description: ""
+          - name: r_leg_atmpted
+            data_type: float
+            description: ""
+          - name: r_leg_acc
+            data_type: float
+            description: ""
+          - name: r_dist_landed
+            data_type: float
+            description: ""
+          - name: r_dist_atmpted
+            data_type: float
+            description: ""
+          - name: r_dist_acc
+            data_type: float
+            description: ""
+          - name: r_clinch_landed
+            data_type: float
+            description: ""
+          - name: r_clinch_atmpted
+            data_type: float
+            description: ""
+          - name: r_clinch_acc
+            data_type: float
+            description: ""
+          - name: r_ground_landed
+            data_type: float
+            description: ""
+          - name: r_ground_atmpted
+            data_type: float
+            description: ""
+          - name: r_ground_acc
+            data_type: float
+            description: ""
+          - name: r_landed_head_per
+            data_type: float
+            description: ""
+          - name: r_landed_body_per
+            data_type: float
+            description: ""
+          - name: r_landed_leg_per
+            data_type: float
+            description: ""
+          - name: r_landed_dist_per
+            data_type: float
+            description: ""
+          - name: r_landed_clinch_per
+            data_type: float
+            description: ""
+          - name: r_landed_ground_per
+            data_type: float
+            description: ""
+          - name: b_kd
+            data_type: number
+            description: ""
+          - name: b_sig_str_landed
+            data_type: float
+            description: ""
+          - name: b_sig_str_atmpted
+            data_type: float
+            description: ""
+          - name: b_sig_str_acc
+            data_type: float
+            description: ""
+          - name: b_total_str_landed
+            data_type: float
+            description: ""
+          - name: b_total_str_atmpted
+            data_type: float
+            description: ""
+          - name: b_total_str_acc
+            data_type: float
+            description: ""
+          - name: b_td_landed
+            data_type: float
+            description: ""
+          - name: b_td_atmpted
+            data_type: float
+            description: ""
+          - name: b_td_acc
+            data_type: float
+            description: ""
+          - name: b_sub_att
+            data_type: float
+            description: ""
+          - name: b_ctrl
+            data_type: float
+            description: ""
+          - name: b_head_landed
+            data_type: float
+            description: ""
+          - name: b_head_atmpted
+            data_type: float
+            description: ""
+          - name: b_head_acc
+            data_type: float
+            description: ""
+          - name: b_body_landed
+            data_type: float
+            description: ""
+          - name: b_body_atmpted
+            data_type: float
+            description: ""
+          - name: b_body_acc
+            data_type: float
+            description: ""
+          - name: b_leg_landed
+            data_type: float
+            description: ""
+          - name: b_leg_atmpted
+            data_type: float
+            description: ""
+          - name: b_leg_acc
+            data_type: float
+            description: ""
+          - name: b_dist_landed
+            data_type: float
+            description: ""
+          - name: b_dist_atmpted
+            data_type: float
+            description: ""
+          - name: b_dist_acc
+            data_type: float
+            description: ""
+          - name: b_clinch_landed
+            data_type: float
+            description: ""
+          - name: b_clinch_atmpted
+            data_type: float
+            description: ""
+          - name: b_clinch_acc
+            data_type: float
+            description: ""
+          - name: b_ground_landed
+            data_type: float
+            description: ""
+          - name: b_ground_atmpted
+            data_type: float
+            description: ""
+          - name: b_ground_acc
+            data_type: float
+            description: ""
+          - name: b_landed_head_per
+            data_type: float
+            description: ""
+          - name: b_landed_body_per
+            data_type: float
+            description: ""
+          - name: b_landed_leg_per
+            data_type: float
+            description: ""
+          - name: b_landed_dist_per
+            data_type: float
+            description: ""
+          - name: b_landed_clinch_per
+            data_type: float
+            description: ""
+          - name: b_landed_ground_per
+            data_type: float
+            description: ""
+
+      - name: fighter_details
+        description: ""
+        columns:
+          - name: id
+            data_type: varchar
+            description: ""
+          - name: name
+            data_type: varchar
+            description: ""
+          - name: nick_name
+            data_type: varchar
+            description: ""
+          - name: wins
+            data_type: number
+            description: ""
+          - name: losses
+            data_type: number
+            description: ""
+          - name: draws
+            data_type: number
+            description: ""
+          - name: height
+            data_type: float
+            description: ""
+          - name: weight
+            data_type: float
+            description: ""
+          - name: reach
+            data_type: float
+            description: ""
+          - name: stance
+            data_type: varchar
+            description: ""
+          - name: dob
+            data_type: varchar
+            description: ""
+          - name: splm
+            data_type: float
+            description: ""
+          - name: str_acc
+            data_type: float
+            description: ""
+          - name: sapm
+            data_type: float
+            description: ""
+          - name: str_def
+            data_type: float
+            description: ""
+          - name: td_avg
+            data_type: float
+            description: ""
+          - name: td_avg_acc
+            data_type: float
+            description: ""
+          - name: td_def
+            data_type: float
+            description: ""
+          - name: sub_avg
+            data_type: float
+            description: ""
+      
