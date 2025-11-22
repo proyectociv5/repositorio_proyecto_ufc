@@ -4,7 +4,7 @@
   )
 }}
 
-WITH src_ufc AS (
+WITH fighter_stats_snapshot AS (
     SELECT * 
     FROM {{ source('raw', 'fighter_details') }}
     ),

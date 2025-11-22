@@ -44,266 +44,291 @@ sources:
             
 
       - name: fight_details
-        description: ""
+        description: "characteristics and statistics of the fight"
         columns:
           - name: event_name
             data_type: varchar
-            description: ""
+            description: "name of the event"
+            data_tests:
+              - not_null
           - name: event_id
             data_type: varchar
-            description: ""
+            description: "unique identificator of the event"
+            data_tests:
+              - not_null
           - name: fight_id
             data_type: varchar
-            description: ""
+            description: "unique identificator of the fight"
+            data_tests:
+              - unique
+              - not_null
           - name: r_name
             data_type: varchar
-            description: ""
+            description: "name of the red corners fighter"       
           - name: r_id
             data_type: varchar
-            description: ""
+            description: "unique identificator of the red corners fighter"
+            data_tests:
+              - not_null
           - name: b_name
             data_type: varchar
-            description: ""
+            description: "name of the blue corners fighter"
           - name: b_id
             data_type: varchar
-            description: ""
+            description: "unique identificator of the blue corners fighter"
+            data_tests:
+              - not_null
           - name: division
             data_type: varchar
-            description: ""
+            description: "division in which the fighter fights"            
           - name: title_fight
             data_type: number
-            description: ""
+            description: "indicates whether the fight is for the belt"
           - name: method
             data_type: varchar
-            description: ""
+            description: "method by the combat ends"
+            data_tests:
+              - not_null
+              - accepted_values:
+                  values: ['Submission',
+                            'Overturned',
+                            'DQ',
+                            'Decision - Unanimous',
+                            'KO/TKO',
+                            'Could Not Continue',
+                            'Other',
+                            'Decision - Majority',
+                            'Decision - Split',
+                            "TKO - Doctor''s Stoppage"]
+
           - name: finish_round
             data_type: number
-            description: ""
+            description: "round in which the fight finished"
           - name: match_time_sec
             data_type: number
-            description: ""
+            description: "duration of the fight in seconds"
           - name: total_rounds
             data_type: number
-            description: ""
+            description: "total rounds of the fight"
           - name: referee
             data_type: varchar
-            description: ""
+            description: "name of the fights referee"
           - name: r_kd
             data_type: number
-            description: ""
+            description: "red corner Knockdowns_landed"
           - name: r_sig_str_landed
             data_type: float
-            description: ""
+            description: "red corner significant_strikes_landed"
           - name: r_sig_str_atmpted
             data_type: float
-            description: ""
+            description: "red corner significant_strikes_attempted"
           - name: r_sig_str_acc
             data_type: float
-            description: ""
+            description: "red corner significant_strikes_accuracy_percentage"
           - name: r_total_str_landed
             data_type: float
-            description: ""
+            description: "red corner total_strikes_landed"
           - name: r_total_str_atmpted
             data_type: float
-            description: ""
+            description: "red corner total_strikes_attempted"
           - name: r_total_str_acc
             data_type: float
-            description: ""
+            description: "red corner total_strikes_accuracy_percentage"
           - name: r_td_landed
             data_type: float
-            description: ""
+            description: "red corner takedowns_landed"
           - name: r_td_atmpted
             data_type: float
-            description: ""
+            description: "red corner takedowns_attempted"
           - name: r_td_acc
             data_type: float
-            description: ""
+            description: "red corner takedowns_accuracy_percentage"
           - name: r_sub_att
             data_type: float
-            description: ""
+            description: "red corner submission_attempts"
           - name: r_ctrl
             data_type: float
-            description: ""
+            description: "red corner control_over_the_rival_in_seconds"
           - name: r_head_landed
             data_type: float
-            description: ""
+            description: "red corner significant_head_strikes_landed"
           - name: r_head_atmpted
             data_type: float
-            description: ""
+            description: "red corner significant_head_strikes_attempted"
           - name: r_head_acc
             data_type: float
-            description: ""
+            description: "red corner significant_head_strikes_accuracy_percentage"
           - name: r_body_landed
             data_type: float
-            description: ""
+            description: "red corner significant_body_strikes_landed"
           - name: r_body_atmpted
             data_type: float
-            description: ""
+            description: "red corner significant_body_strikes_attempted"
           - name: r_body_acc
             data_type: float
-            description: ""
+            description: "red corner significant_body_strikes_accuracy_percentage"
           - name: r_leg_landed
             data_type: float
-            description: ""
+            description: "red corner leg_kicks_landed"
           - name: r_leg_atmpted
             data_type: float
-            description: ""
+            description: "red corner leg_kicks_attempted"
           - name: r_leg_acc
             data_type: float
-            description: ""
+            description: "red corner leg_kicks_accuracy_percentage"
           - name: r_dist_landed
             data_type: float
-            description: ""
+            description: "red corner significant_distance_strikes_landed"
           - name: r_dist_atmpted
             data_type: float
-            description: ""
+            description: "red corner significant_distance_strikes_attempted"
           - name: r_dist_acc
             data_type: float
-            description: ""
+            description: "red corner significant_distance_strikes_accuracy_percentage"
           - name: r_clinch_landed
             data_type: float
-            description: ""
+            description: "red corner significant_clinch_strikes_landed"
           - name: r_clinch_atmpted
             data_type: float
-            description: ""
+            description: "red corner significant_clinch_strikes_attempted"
           - name: r_clinch_acc
             data_type: float
-            description: ""
+            description: "red corner significant_clinch_strikes_accuracy_percentage"
           - name: r_ground_landed
             data_type: float
-            description: ""
+            description: "red corner significant_ground_strikes_landed"
           - name: r_ground_atmpted
             data_type: float
-            description: ""
+            description: "red corner significant_ground_strikes_attempted"
           - name: r_ground_acc
             data_type: float
-            description: ""
+            description: "red corner significant_ground_strikes_accuracy_percentage"
           - name: r_landed_head_per
             data_type: float
-            description: ""
+            description: "red corner significant_head_strikes_landed_percentage"
           - name: r_landed_body_per
             data_type: float
-            description: ""
+            description: "red corner significant_body_strikes_landed_percentage"
           - name: r_landed_leg_per
             data_type: float
-            description: ""
+            description: "red corner significant_distance_strikes_landed_percentage"
           - name: r_landed_dist_per
             data_type: float
-            description: ""
+            description: "red corner significant_distance_strikes_landed_percentage"
           - name: r_landed_clinch_per
             data_type: float
-            description: ""
+            description: "red corner significant_clinch_strikes_landed_percentage"
           - name: r_landed_ground_per
             data_type: float
-            description: ""
+            description: "red corner significant_ground_strikes_landed_percentage"
           - name: b_kd
             data_type: number
-            description: ""
+            description: "blue corner Knockdowns_landed"
           - name: b_sig_str_landed
             data_type: float
-            description: ""
+            description: "blue corner significant_strikes_landed"
           - name: b_sig_str_atmpted
             data_type: float
-            description: ""
+            description: "blue corner significant_strikes_attempted"
           - name: b_sig_str_acc
             data_type: float
-            description: ""
+            description: "blue corner significant_strikes_accuracy_percentage"
           - name: b_total_str_landed
             data_type: float
-            description: ""
+            description: "blue corner total_strikes_landed"
           - name: b_total_str_atmpted
             data_type: float
-            description: ""
+            description: "blue corner total_strikes_attempted"
           - name: b_total_str_acc
             data_type: float
-            description: ""
+            description: "blue corner total_strikes_accuracy_percentage"
           - name: b_td_landed
             data_type: float
-            description: ""
+            description: "blue corner takedowns_landed"
           - name: b_td_atmpted
             data_type: float
-            description: ""
+            description: "blue corner takedowns_attempted"
           - name: b_td_acc
             data_type: float
-            description: ""
+            description: "blue corner takedowns_accuracy_percentage"
           - name: b_sub_att
             data_type: float
-            description: ""
+            description: "blue corner submission_attempts "
           - name: b_ctrl
             data_type: float
-            description: ""
+            description: "blue corner control_over_the_rival_in_seconds"
           - name: b_head_landed
             data_type: float
-            description: ""
+            description: "blue corner significant_head_strikes_landed"
           - name: b_head_atmpted
             data_type: float
-            description: ""
+            description: "blue corner significant_head_strikes_attempted"
           - name: b_head_acc
             data_type: float
-            description: ""
+            description: "blue corner significant_head_strikes_accuracy_percentage"
           - name: b_body_landed
             data_type: float
-            description: ""
+            description: "blue corner significant_body_strikes_landed"
           - name: b_body_atmpted
             data_type: float
-            description: ""
+            description: "blue corner significant_body_strikes_attempted  "
           - name: b_body_acc
             data_type: float
-            description: ""
+            description: "blue corner significant_body_strikes_accuracy_percentage "
           - name: b_leg_landed
             data_type: float
-            description: ""
+            description: "blue corner leg_kicks_landed"
           - name: b_leg_atmpted
             data_type: float
-            description: ""
+            description: "blue corner leg_kicks_attempted"
           - name: b_leg_acc
             data_type: float
-            description: ""
+            description: "blue corner leg_kicks_accuracy_percentage"
           - name: b_dist_landed
             data_type: float
-            description: ""
+            description: "blue corner significant_distance_strikes_landed  "
           - name: b_dist_atmpted
             data_type: float
-            description: ""
+            description: "blue corner significant_distance_strikes_attempted"
           - name: b_dist_acc
             data_type: float
-            description: ""
+            description: "blue corner significant_distance_strikes_accuracy_percentage  "
           - name: b_clinch_landed
             data_type: float
-            description: ""
+            description: "blue corner significant_clinch_strikes_landed "
           - name: b_clinch_atmpted
             data_type: float
-            description: ""
+            description: "blue corner significant_clinch_strikes_attempted "
           - name: b_clinch_acc
             data_type: float
-            description: ""
+            description: "blue corner significant_clinch_strikes_accuracy_percentage "
           - name: b_ground_landed
             data_type: float
-            description: ""
+            description: "blue corner significant_ground_strikes_landed "
           - name: b_ground_atmpted
             data_type: float
-            description: ""
+            description: "blue corner significant_ground_strikes_attempted  "
           - name: b_ground_acc
             data_type: float
-            description: ""
+            description: "blue corner significant_ground_strikes_accuracy_percentage "
           - name: b_landed_head_per
             data_type: float
-            description: ""
+            description: "blue corner significant_head_strikes_landed_percentage"
           - name: b_landed_body_per
             data_type: float
-            description: ""
+            description: "blue corner significant_body_strikes_landed_percentage"
           - name: b_landed_leg_per
             data_type: float
-            description: ""
+            description: "blue corner significant_leg_strikes_landed_percentage"
           - name: b_landed_dist_per
             data_type: float
-            description: ""
+            description: "blue corner significant_distance_strikes_landed_percentage"
           - name: b_landed_clinch_per
             data_type: float
-            description: ""
+            description: "blue corner significant_clinch_strikes_landed_percentage"
           - name: b_landed_ground_per
             data_type: float
-            description: ""
+            description: "blue corner significant_ground_strikes_landed_percentage"
 
       - name: fighter_details
         description: "fighter attributtes and global statistcs"
@@ -350,13 +375,13 @@ sources:
             data_type: varchar
             description: "normal stance of the fighter"
             data_tests:
-             - accepted_values:
-                  values:
-                    - 'Southpaw'
-                    - 'Sideways'
-                    - 'Switch'
-                    - 'Orthodox'   
-                    - 'Open Stance'
+              - accepted_values:
+                  values: [
+                    'Southpaw',
+                    'Sideways',
+                    'Switch',
+                    'Orthodox',   
+                    'Open Stance']
           - name: dob
             data_type: varchar
             description: "date of birthay"
