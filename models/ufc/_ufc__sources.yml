@@ -1,6 +1,6 @@
 sources:
 
-  - name: ufc_daniel # name of the source 
+  - name: raw # name of the source 
     schema: raw # this is the schema our raw data lives in
     database: "ufc_daniel_bronze" # this is the name of our database
 
@@ -306,63 +306,99 @@ sources:
             description: ""
 
       - name: fighter_details
-        description: ""
+        description: "fighter attributtes and global statistcs"
         columns:
           - name: id
             data_type: varchar
-            description: ""
+            description: "unique identifier of the fighter"
+            data_tests:
+              - unique
+              - not_null
           - name: name
             data_type: varchar
-            description: ""
+            description: "name of the fighter"
+            data_tests:
+              - not_null
           - name: nick_name
             data_type: varchar
-            description: ""
+            description: "nickname of the fighter"
           - name: wins
             data_type: number
-            description: ""
+            description: "wins of the fighter"
+            data_tests:
+              - not_null
           - name: losses
             data_type: number
-            description: ""
+            description: "losses of the fighter"
+            data_tests:
+              - not_null
           - name: draws
             data_type: number
-            description: ""
+            description: "draws of the fighter"
+            data_tests:
+              - not_null
           - name: height
             data_type: float
-            description: ""
-          - name: weight
-            data_type: float
-            description: ""
+            description: "height of the fighter in centimeters"
           - name: reach
             data_type: float
-            description: ""
+            description: "reach of the fighter in centimeters"
+          - name: weight
+            data_type: float
+            description: "weight of the fighter in lbs"
           - name: stance
             data_type: varchar
-            description: ""
+            description: "normal stance of the fighter"
+            data_tests:
+             - accepted_values:
+                  values:
+                    - 'Southpaw'
+                    - 'Sideways'
+                    - 'Switch'
+                    - 'Orthodox'   
+                    - 'Open Stance'
           - name: dob
             data_type: varchar
-            description: ""
+            description: "date of birthay"
           - name: splm
             data_type: float
-            description: ""
+            description: "significant strikes landed perminute"
+            data_tests:
+              - not_null
           - name: str_acc
             data_type: float
-            description: ""
+            description: "striking accuracy percentage"
+            data_tests:
+              - not_null
           - name: sapm
             data_type: float
-            description: ""
+            description: "significant strikes absorbed per minute"
+            data_tests:
+              - not_null
           - name: str_def
             data_type: float
-            description: ""
+            description: "significant strike defense percentage"
+            data_tests:
+              - not_null
           - name: td_avg
             data_type: float
-            description: ""
+            description: "takedown average per fight"
+            data_tests:
+              - not_null
           - name: td_avg_acc
             data_type: float
-            description: ""
+            description: "takedown accuracy percentage "
+            data_tests:
+              - not_null
           - name: td_def
             data_type: float
-            description: ""
+            description: "takedown defense percentage"
+            data_tests:
+              - not_null
           - name: sub_avg
             data_type: float
-            description: ""
+            description: "submission average per fight"
+            data_tests:
+              - not_null
+
       
