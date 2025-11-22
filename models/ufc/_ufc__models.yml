@@ -34,6 +34,42 @@ models:
         data_type: varchar
         description: "name of the fighters stances"
 
+      
+  - name: fight
+    description: "data of all the fights of the events, granularity: fight"
+    columns:
+      - name: fight_id
+        data_type: varchar
+        description: "unique identificator of the fight"
+      - name: event_id
+        data_type: varchar
+        description: "unique identificator of the event" 
+      - name: division_id
+        data_type: varchar
+        description: "unique identifier of the fight division"
+      - name: referee_id
+        data_type: varchar
+        description: "unique identifier of the fights referee"  
+      - name: method_id
+        data_type: varchar
+        description: "unique identifier of the method by the combat ends"          
+      - name: title_fight
+        data_type: boolean
+        description: "indicates whether the fight is for the belt"
+      - name: finish_round
+        data_type: number
+        description: "round in which the fight finished"
+      - name: total_rounds
+        data_type: number
+        description: "total rounds of the fight"
+      - name: fight_time_sec
+        data_type: number
+        description: "duration of the fight in seconds"
+      
+     
+      
+    
+
 
 
       
