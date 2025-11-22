@@ -1,0 +1,39 @@
+models:
+  - name: fighter
+    description: "fighter attributtes and global statistcs"
+    columns:
+      - name: fighter_id
+        data_type: varchar
+        description: "unique identifier of the fighter"
+      - name: name
+        data_type: varchar
+        description: "name of the fighter"
+      - name: nick_name
+        data_type: varchar
+        description: "nickname of the fighter"
+      - name: date_of_birthay
+        data_type: varchar
+        description: "date of birthay"
+      - name: height
+        data_type: float
+        description: "height of the fighter in centimeters"
+      - name: reach
+        data_type: float
+        description: "reach of the fighter in centimeters"
+      - name: stance_id
+        data_type: varchar
+        description: "id of the normal stance of the fighter"
+      
+  - name: stance
+    description: "fighter attributtes and global statistcs"
+    columns:
+      - name: stance_id
+        data_type: varchar
+        description: "unique identifier of the stances"
+      - name: fighter_stance
+        data_type: varchar
+        description: "name of the fighters stances"
+
+
+
+      
