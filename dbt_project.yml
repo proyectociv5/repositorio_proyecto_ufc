@@ -40,6 +40,10 @@ models:
     staging:
       +materialized: view
       +database: "ufc_daniel_silver"
-      ufc:
-        +schema: silver
+
+    marts: 
+      +materialized: table
+      +database: "ufc_daniel_gold"
+
+      
     

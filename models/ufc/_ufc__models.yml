@@ -111,6 +111,133 @@ models:
       - name: event_location
         data_type: varchar
         description: "location on which the event took place"
+  
+  - name: fight_performance 
+    description: "performance of the fighters y each fight, granularity: fighter"
+    columns:
+    - name: fight_performance_id
+      data_type: varchar
+      description: "surrogate key of the fight and fighter id"
+    - name: fight_id
+      data_type: varchar
+      description: "identificator of the fight"
+    - name: fighter_id
+      data_type: varchar
+      description: "identificator of the fighter"
+    - name: winner
+      data_type: boolean
+      description: "indicates whther the fighter wins in his fight or not"
+
+
+    - name: Knockdowns_landed
+      data_type: number
+      description: "Knockdowns landed"
+    - name: significant_strikes_landed
+      data_type: float
+      description: "significant_strikes_landed"
+    - name: significant_strikes_attempted
+      data_type: float
+      description: "significant_strikes_attempted"
+    - name: significant_strikes_accuracy_percentage
+      data_type: float
+      description: "significant_strikes_accuracy_percentage"
+    - name: total_strikes_landed
+      data_type: float
+      description: "total_strikes_landed"
+    - name: total_strikes_attempted
+      data_type: float
+      description: "total_strikes_attempted"
+    - name: total_strikes_accuracy_percentage
+      data_type: float
+      description: "total_strikes_accuracy_percentage"
+    - name: takedowns_landed
+      data_type: float
+      description: "takedowns_landed"
+    - name: takedowns_attempted
+      data_type: float
+      description: "takedowns_attempted"
+    - name: takedowns_accuracy_percentage
+      data_type: float
+      description: "takedowns_accuracy_percentage"
+    - name: submission_attempts
+      data_type: float
+      description: "submission_attempts"
+    - name: control_over_the_rival_in_seconds
+      data_type: number
+      description: "control_over_the_rival_in_seconds"
+    - name: significant_head_strikes_landed
+      data_type: float
+      description: "significant_head_strikes_landed"
+    - name: significant_head_strikes_attempted
+      data_type: float
+      description: "significant_head_strikes_attempted"
+    - name: significant_head_strikes_accuracy_percentage
+      data_type: float
+      description: "significant_head_strikes_accuracy_percentage"
+    - name: significant_body_strikes_landed
+      data_type: float
+      description: "significant_body_strikes_landed"
+    - name: significant_body_strikes_attempted
+      data_type: float
+      description: "significant_body_strikes_attempted"
+    - name: significant_body_strikes_accuracy_percentage
+      data_type: float
+      description: "significant_body_strikes_accuracy_percentage"
+    - name: leg_kicks_landed
+      data_type: float
+      description: "leg_kicks_landed"
+    - name: leg_kicks_attempted
+      data_type: float
+      description: "leg_kicks_attempted"
+    - name: leg_kicks_accuracy_percentage
+      data_type: float
+      description: "leg_kicks_accuracy_percentage"
+    - name: significant_distance_strikes_landed
+      data_type: float
+      description: "significant_distance_strikes_landed"
+    - name: significant_distance_strikes_attempted
+      data_type: float
+      description: "significant_distance_strikes_attempted"
+    - name: significant_distance_strikes_accuracy_percentage
+      data_type: float
+      description: "significant_distance_strikes_accuracy_percentage"
+    - name: significant_clinch_strikes_landed
+      data_type: float
+      description: "significant_clinch_strikes_landed"
+    - name: significant_clinch_strikes_attempted
+      data_type: float
+      description: "significant_clinch_strikes_attempted"
+    - name: significant_clinch_strikes_accuracy_percentage
+      data_type: float
+      description: "significant_clinch_strikes_accuracy_percentage"
+    - name: significant_ground_strikes_landed
+      data_type: float
+      description: "significant_ground_strikes_landed"
+    - name: significant_ground_strikes_attempted
+      data_type: float
+      description: "significant_ground_strikes_attempted"
+    - name: significant_ground_strikes_accuracy_percentage
+      data_type: float
+      description: "significant_ground_strikes_accuracy_percentage"
+    - name: significant_head_strikes_landed_percentage
+      data_type: float
+      description: "significant_head_strikes_landed_percentage"
+    - name: significant_body_strikes_landed_percentage
+      data_type: float
+      description: "significant_body_strikes_landed_percentage"
+    - name: significant_distance_strikes_landed_percentage
+      data_type: float
+      description: "significant_distance_strikes_landed_percentage"
+    - name: significant_distance_strikes_landed_percentage
+      data_type: float
+      description: "significant_distance_strikes_landed_percentage"
+    - name: significant_clinch_strikes_landed_percentage
+      data_type: float
+      description: "significant_clinch_strikes_landed_percentage"
+    - name: significant_ground_strikes_landed_percentage
+      data_type: float
+      description: "significant_ground_strikes_landed_percentage"
+
 
 
 

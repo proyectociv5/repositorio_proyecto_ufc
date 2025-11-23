@@ -146,7 +146,7 @@ sources:
             data_type: float
             description: "red corner submission_attempts"
           - name: r_ctrl
-            data_type: float
+            data_type: number
             description: "red corner control_over_the_rival_in_seconds"
           - name: r_head_landed
             data_type: float
@@ -254,7 +254,7 @@ sources:
             data_type: float
             description: "blue corner submission_attempts "
           - name: b_ctrl
-            data_type: float
+            data_type: number
             description: "blue corner control_over_the_rival_in_seconds"
           - name: b_head_landed
             data_type: float
