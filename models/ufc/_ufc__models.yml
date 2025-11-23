@@ -25,7 +25,7 @@ models:
         description: "id of the normal stance of the fighter"
       
   - name: stance
-    description: "fighter attributtes and global statistcs"
+    description: "stances of the fighters"
     columns:
       - name: stance_id
         data_type: varchar
@@ -65,10 +65,55 @@ models:
       - name: fight_time_sec
         data_type: number
         description: "duration of the fight in seconds"
-      
-     
-      
-    
+
+  - name: division
+    description: "different divisions of the UFC"
+    columns:
+      - name: division_id
+        data_type: varchar
+        description: "unique identifier of the divisions"
+      - name: division_name
+        data_type: varchar
+        description: "name of the divisions of the UFC"
+
+  - name: referee
+    description: "different referees of the UFC"
+    columns:
+      - name: referee_id
+        data_type: varchar
+        description: "unique identifier of the referees"
+      - name: referee_name
+        data_type: varchar
+        description: "name of the referees of the UFC"
+
+  - name: finish_method
+    description: "method by which the fight ends"
+    columns:
+      - name: method_id
+        data_type: varchar
+        description: "unique identifier of the method"
+      - name: method_name
+        data_type: varchar
+        description: "name of the methods by which the fight ends"
+  
+  - name: event
+    description: "Information about the event, granularity: event"
+    columns:
+      - name: event_id
+        data_type: varchar
+        description: "identificator of the event"
+      - name: event_name
+        data_type: varchar
+        description: "name of each event"
+      - name: date
+        data_type: date
+        description: "date on which the event took place"
+      - name: event_location
+        data_type: varchar
+        description: "location on which the event took place"
+
+
+
 
 
 

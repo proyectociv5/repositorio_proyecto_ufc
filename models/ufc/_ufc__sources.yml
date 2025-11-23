@@ -11,36 +11,35 @@ sources:
 
     tables:
       - name: event_details
-        description: ""
+        description: "Information about the event"
         columns:
           - name: event_id
             data_type: varchar
-            description: ""
+            description: "identificator of the event"
             data_tests:
               - not_null
           - name: fight_id
             data_type: varchar
-            description: ""
+            description: "unique identificator of each fight"
             data_tests:
               - unique
               - not_null
           - name: date
             data_type: varchar
-            description: ""
+            description: "date on which the event took place"
             data_tests:
               - not_null
           - name: location
             data_type: varchar
-            description: ""
+            description: "location on which the event took place"
             data_tests:
               - not_null
           - name: winner
             data_type: varchar
-            description: ""
-            
+            description: "name of the winner of each fight"
           - name: winner_id
             data_type: varchar
-            description: ""
+            description: "identificator of the winner of each fight"
             
 
       - name: fight_details
