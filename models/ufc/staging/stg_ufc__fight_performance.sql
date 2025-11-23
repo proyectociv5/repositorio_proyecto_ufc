@@ -87,7 +87,7 @@ WITH one_row_per_fighter AS (
 
     join_with_event_details AS(
 
-        SELECT f.*, e.winner_id 
+        SELECT f.*, e.winner_id , e.date
         FROM one_row_per_fighter f
         INNER JOIN {{ source('raw', 'event_details') }} e ON f.fight_id = e.fight_id
 
@@ -96,6 +96,7 @@ WITH one_row_per_fighter AS (
     incremental_table AS(
         SELECT
         {{dbt_utils.generate_surrogate_key(['fight_id', 'fighter_id'])}} AS fighter_performance_id,
+        date,
         fight_id,
         fighter_id,
         CAST(
@@ -146,7 +147,11 @@ WITH one_row_per_fighter AS (
     ) SELECT * FROM incremental_table
 
 
+{% if is_incremental() %}
 
+  where date > (select max(date) from {{ this }})
+
+{% endif %}
 
 
 
