@@ -6,8 +6,8 @@
 
 WITH src_ufc AS (
     SELECT DISTINCT e.event_id, event_name, date, location
-    FROM {{ source('raw', 'event_details') }} e
-    INNER JOIN {{ source('raw', 'fight_details') }} f  ON e.event_id=f.event_id
+    FROM {{ ref('base_ufc__event_details') }} e
+    INNER JOIN {{ ref('base_ufc__fight_details') }} f  ON e.event_id=f.event_id
     ),
 
 event_view AS (

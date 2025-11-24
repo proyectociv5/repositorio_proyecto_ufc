@@ -42,7 +42,7 @@ WITH one_row_per_fighter AS (
     r_landed_dist_per AS  significant_distance_strikes_landed_percentage, 
     r_landed_clinch_per  AS significant_clinch_strikes_landed_percentage,
     r_landed_ground_per AS  significant_ground_strikes_landed_percentage
-    FROM {{ source('raw', 'fight_details') }}
+    FROM {{ ref('base_ufc__fight_details') }}
 
     UNION ALL
 
@@ -83,13 +83,13 @@ WITH one_row_per_fighter AS (
     b_landed_dist_per AS  significant_distance_strikes_landed_percentage,  
     b_landed_clinch_per  AS significant_clinch_strikes_landed_percentage,
     b_landed_ground_per AS  significant_ground_strikes_landed_percentage
-    FROM {{ source('raw', 'fight_details') }} ) ,
+    FROM {{ ref('base_ufc__fight_details') }}),
 
     join_with_event_details AS(
 
         SELECT f.*, e.winner_id , e.date
         FROM one_row_per_fighter f
-        INNER JOIN {{ source('raw', 'event_details') }} e ON f.fight_id = e.fight_id
+        INNER JOIN {{ ref('base_ufc__event_details') }} e ON f.fight_id = e.fight_id
 
     ) ,
 

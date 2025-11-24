@@ -1,10 +1,16 @@
 models:
-  - name: dim_event
+  - name: mrt_ufc__dim_event
     description: "Information about the event, granularity: event"
     columns:
       - name: event_id
         data_type: varchar
         description: "identificator of the event"
+        data_tests:
+        - unique
+        - not_null
+        - relationships:
+            to: ref('mrt_ufc__dim_event')
+            field: event_id
       - name: event_name
         data_type: varchar
         description: "name of each event"
@@ -12,42 +18,66 @@ models:
         data_type: varchar
         description: "location on which the event took place"
 
-  - name: division
+  - name: mrt_ufc__dim_division
     description: "different divisions of the UFC"
     columns:
       - name: division_id
         data_type: varchar
         description: "unique identifier of the divisions"
+        data_tests:
+        - unique
+        - not_null
+        - relationships:
+            to: ref('mrt_ufc__dim_division')
+            field: division_id
       - name: division_name
         data_type: varchar
         description: "name of the divisions of the UFC"
 
-  - name: referee
+  - name: mrt_ufc__dim_referee
     description: "different referees of the UFC"
     columns:
       - name: referee_id
         data_type: varchar
         description: "unique identifier of the referees"
+        data_tests:
+        - unique
+        - not_null
+        - relationships:
+            to: ref('mrt_ufc__dim_referee')
+            field: referee_id
       - name: referee_name
         data_type: varchar
         description: "name of the referees of the UFC"
 
-  - name: finish_method
+  - name: mrt_ufc__dim_finish_method
     description: "method by which the fight ends"
     columns:
       - name: method_id
         data_type: varchar
         description: "unique identifier of the method"
+        data_tests:
+        - unique
+        - not_null
+        - relationships:
+            to: ref('mrt_ufc__dim_finish_method')
+            field: method_id
       - name: method_name
         data_type: varchar
         description: "name of the methods by which the fight ends"
   
-  - name: fighter
+  - name: mrt_ufc__dim_fighter
     description: "fighter attributtes and global statistcs"
     columns:
       - name: fighter_id
         data_type: varchar
         description: "unique identifier of the fighter"
+        data_tests:
+        - unique
+        - not_null
+        - relationships:
+            to: ref('mrt_ufc__dim_fighter')
+            field: fighter_id
       - name: name
         data_type: varchar
         description: "name of the fighter"
@@ -66,6 +96,29 @@ models:
       - name: fighter_stance
         data_type: varchar
         description: "name of the normal stance of the fighter"
+
+  - name: mrt_ufc__dim_time
+    description: "all the dates used in the models"
+    columns:
+      - name: date
+        data_type: date
+        description: "year month and day"
+        data_tests:
+        - unique
+        - not_null
+        - relationships:
+            to: ref('mrt_ufc__dim_time')
+            field: date
+      - name: year
+        data_type: date
+        description: "year of each date"
+      - name: month
+        data_type: date
+        description: "month of each date"
+      - name: day
+        data_type: date
+        description: "day of each date"
+  
   
 
   
