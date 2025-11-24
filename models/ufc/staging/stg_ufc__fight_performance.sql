@@ -95,7 +95,7 @@ WITH one_row_per_fighter AS (
 
     incremental_table AS(
         SELECT
-        {{dbt_utils.generate_surrogate_key(['fight_id', 'fighter_id'])}} AS fighter_performance_id,
+        {{dbt_utils.generate_surrogate_key(['fight_id', 'fighter_id'])}} AS fight_performance_id,
         {{date_format_changer('date') }} AS fight_date,
         fight_id,
         fighter_id,
