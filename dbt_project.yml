@@ -37,13 +37,16 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   ufc_proyect:
-    staging:
-      +materialized: view
-      +database: "ufc_daniel_silver"
+    ufc:
+      staging:
+        +materialized: view
+        +database: "ufc_daniel_silver"
+        
 
-    marts: 
-      +materialized: table
-      +database: "ufc_daniel_gold"
+      marts: 
+        +materialized: table
+        +database: "ufc_daniel_gold"
+        
 
       
     

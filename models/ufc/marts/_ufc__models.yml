@@ -1,0 +1,23 @@
+models:
+  - name: dim_event
+    description: "Information about the event, granularity: event"
+    columns:
+    - name: event_id
+      data_type: varchar
+      description: "identificator of the event"
+    - name: event_name
+      data_type: varchar
+      description: "name of each event"
+    - name: event_location
+      data_type: varchar
+      description: "location on which the event took place"
+
+  - name: division
+    description: "different divisions of the UFC"
+    columns:
+    - name: division_id
+      data_type: varchar
+      description: "unique identifier of the divisions"
+    - name: division_name
+      data_type: varchar
+      description: "name of the divisions of the UFC"

@@ -96,7 +96,7 @@ WITH one_row_per_fighter AS (
     incremental_table AS(
         SELECT
         {{dbt_utils.generate_surrogate_key(['fight_id', 'fighter_id'])}} AS fighter_performance_id,
-        date,
+        {{date_format_changer('date') }} AS fight_date,
         fight_id,
         fighter_id,
         CAST(
@@ -142,14 +142,14 @@ WITH one_row_per_fighter AS (
         significant_clinch_strikes_landed_percentage,
         significant_ground_strikes_landed_percentage
 
-        FROM join_with_event_details order by fight_id
+        FROM join_with_event_details 
 
     ) SELECT * FROM incremental_table
 
 
 {% if is_incremental() %}
 
-  where date > (select max(date) from {{ this }})
+  where fight_date > (select max(fight_date) from {{ this }})
 
 {% endif %}
 
