@@ -7,9 +7,7 @@ models:
         description: "unique identifier of the fighter"
         data_tests:
         - not_null
-        - relationships:
-            to: ref('stg_ufc__fighter')
-            field: fighter_id
+        - unique
       - name: name
         data_type: varchar
         description: "name of the fighter"
@@ -28,6 +26,11 @@ models:
       - name: stance_id
         data_type: varchar
         description: "id of the normal stance of the fighter"
+        data_tests:
+        - not_null
+        - relationships:
+            to: ref('stg_ufc__fighter')
+            field: stance_id
       
   - name: stg_ufc__stance
     description: "stances of the fighters"
@@ -37,9 +40,7 @@ models:
         description: "unique identifier of the stances"
         data_tests:
         - not_null
-        - relationships:
-            to: ref('stg_ufc__stance')
-            field: stance_id
+        - unique
       - name: fighter_stance
         data_type: varchar
         description: "name of the fighters stances"
@@ -53,21 +54,39 @@ models:
         description: "unique identificator of the fight"
         data_tests:
         - not_null
-        - relationships:
-            to: ref('stg_ufc__fight')
-            field: fight_id
+        - unique
       - name: event_id
         data_type: varchar
         description: "unique identificator of the event" 
+        data_tests:
+        - not_null
+        - relationships:
+            to: ref('stg_ufc__event')
+            field: event_id
       - name: division_id
         data_type: varchar
         description: "unique identifier of the fight division"
+        data_tests:
+        - not_null
+        - relationships:
+            to: ref('stg_ufc__division')
+            field: division_id
       - name: referee_id
         data_type: varchar
         description: "unique identifier of the fights referee"  
+        data_tests:
+        - not_null
+        - relationships:
+            to: ref('stg_ufc__referee')
+            field: referee_id
       - name: method_id
         data_type: varchar
-        description: "unique identifier of the method by the combat ends"          
+        description: "unique identifier of the method by the combat ends"   
+        data_tests:
+        - not_null
+        - relationships:
+            to: ref('stg_ufc__finish_method')
+            field: method_id       
       - name: title_fight
         data_type: boolean
         description: "indicates whether the fight is for the belt"
@@ -89,9 +108,7 @@ models:
         description: "unique identifier of the divisions"
         data_tests:
         - not_null
-        - relationships:
-            to: ref('stg_ufc__division')
-            field: division_id
+        - unique
       - name: division_name
         data_type: varchar
         description: "name of the divisions of the UFC"
@@ -104,9 +121,7 @@ models:
         description: "unique identifier of the referees"
         data_tests:
         - not_null
-        - relationships:
-            to: ref('stg_ufc__referee')
-            field: referee_id
+        - unique
       - name: referee_name
         data_type: varchar
         description: "name of the referees of the UFC"
@@ -118,10 +133,8 @@ models:
         data_type: varchar
         description: "unique identifier of the method"
         data_tests:
+        - unique
         - not_null
-        - relationships:
-            to: ref('stg_ufc__finish_method')
-            field: method_id
       - name: method_name
         data_type: varchar
         description: "name of the methods by which the fight ends"
@@ -134,9 +147,7 @@ models:
         description: "identificator of the event"
         data_tests:
         - not_null
-        - relationships:
-            to: ref('stg_ufc__event')
-            field: event_id
+        - unique
       - name: event_name
         data_type: varchar
         description: "name of each event"
@@ -155,9 +166,7 @@ models:
       description: "surrogate key of the fight and fighter id"
       data_tests:
         - not_null
-        - relationships:
-            to: ref('stg_ufc__fight_performance')
-            field: fight_performance_id
+        - unique
     - name: fight_id
       data_type: varchar
       description: "identificator of the fight"
@@ -167,7 +176,6 @@ models:
     - name: winner
       data_type: boolean
       description: "indicates whether the fighter wins in his fight or not"
-
     - name: Knockdowns_landed
       data_type: number
       description: "Knockdowns landed by the fihgter"
@@ -176,106 +184,136 @@ models:
       description: "significant strikes landed by the fihgter"
     - name: significant_strikes_attempted
       data_type: float
-      description: "significant_strikes_attempted"
+      description: "significant strikes attempted by the fihgter"
     - name: significant_strikes_accuracy_percentage
       data_type: float
-      description: "significant_strikes_accuracy_percentage"
+      description: "significant strikes accuracy percentage"
+      data_tests:
+        - percentage_test
     - name: total_strikes_landed
       data_type: float
-      description: "total_strikes_landed"
+      description: "total strikes landed"
     - name: total_strikes_attempted
       data_type: float
-      description: "total_strikes_attempted"
+      description: "total strikes attempted"
     - name: total_strikes_accuracy_percentage
       data_type: float
-      description: "total_strikes_accuracy_percentage"
+      description: "total strikes accuracy percentage"
+      data_tests:
+        - percentage_test
     - name: takedowns_landed
       data_type: float
-      description: "takedowns_landed"
+      description: "takedowns landed by the fihgter"
     - name: takedowns_attempted
       data_type: float
-      description: "takedowns_attempted"
+      description: "takedowns attempted by the fihgter"
     - name: takedowns_accuracy_percentage
       data_type: float
-      description: "takedowns_accuracy_percentage"
+      description: "takedowns accuracy percentage"
+      data_tests:
+        - percentage_test
     - name: submission_attempts
       data_type: float
-      description: "submission_attempts"
+      description: "submission attempts"
     - name: control_over_the_rival_in_seconds
       data_type: number
-      description: "control_over_the_rival_in_seconds"
+      description: "control over the rival in seconds"
     - name: significant_head_strikes_landed
       data_type: float
-      description: "significant_head_strikes_landed"
+      description: "significant head strikes landed by the fihgter"
     - name: significant_head_strikes_attempted
       data_type: float
-      description: "significant_head_strikes_attempted"
+      description: "significant head strikes attempted by the fihgter"
     - name: significant_head_strikes_accuracy_percentage
       data_type: float
-      description: "significant_head_strikes_accuracy_percentage"
+      description: "significant head strikes accuracy percentage"
+      data_tests:
+        - percentage_test
     - name: significant_body_strikes_landed
       data_type: float
-      description: "significant_body_strikes_landed"
+      description: "significant body strikes landed by the fihgter"
     - name: significant_body_strikes_attempted
       data_type: float
-      description: "significant_body_strikes_attempted"
+      description: "significant body strikes attempted by the fihgter"
     - name: significant_body_strikes_accuracy_percentage
       data_type: float
-      description: "significant_body_strikes_accuracy_percentage"
+      description: "significant body strikes accuracy percentage "
+      data_tests:
+        - percentage_test
     - name: leg_kicks_landed
       data_type: float
-      description: "leg_kicks_landed"
+      description: "leg kicks landed by the fihgter"
     - name: leg_kicks_attempted
       data_type: float
-      description: "leg_kicks_attempted"
+      description: "leg kicks attempted by the fihgter"
     - name: leg_kicks_accuracy_percentage
       data_type: float
-      description: "leg_kicks_accuracy_percentage"
+      description: "leg kicks accuracy percentage"
+      data_tests:
+        - percentage_test
     - name: significant_distance_strikes_landed
       data_type: float
-      description: "significant_distance_strikes_landed"
+      description: "significant distance strikes landed by the fihgter"
     - name: significant_distance_strikes_attempted
       data_type: float
-      description: "significant_distance_strikes_attempted"
+      description: "significant distance strikes attempted by the fihgter"
     - name: significant_distance_strikes_accuracy_percentage
       data_type: float
-      description: "significant_distance_strikes_accuracy_percentage"
+      description: "significan distance strikes accuracy percentage"
+      data_tests:
+        - percentage_test
     - name: significant_clinch_strikes_landed
       data_type: float
-      description: "significant_clinch_strikes_landed"
+      description: "significant clinch strikes landed by the fihgter"
     - name: significant_clinch_strikes_attempted
       data_type: float
-      description: "significant_clinch_strikes_attempted"
+      description: "significant clinch strikes attempted by the fihgter"
     - name: significant_clinch_strikes_accuracy_percentage
       data_type: float
-      description: "significant_clinch_strikes_accuracy_percentage"
+      description: "significant clinch strikes accuracy percentage"
+      data_tests:
+        - percentage_test
     - name: significant_ground_strikes_landed
       data_type: float
-      description: "significant_ground_strikes_landed"
+      description: "significant ground strikes landed by the fihgter"
     - name: significant_ground_strikes_attempted
       data_type: float
-      description: "significant_ground_strikes_attempted"
+      description: "significant ground strikes attempted by the fihgter"
     - name: significant_ground_strikes_accuracy_percentage
       data_type: float
-      description: "significant_ground_strikes_accuracy_percentage"
+      description: "significant ground strikes accuracy percentage"
+      data_tests:
+        - percentage_test
     - name: significant_head_strikes_landed_percentage
       data_type: float
-      description: "significant_head_strikes_landed_percentage"
+      description: "significant head strikes landed percentage"
+      data_tests:
+        - percentage_test
     - name: significant_body_strikes_landed_percentage
       data_type: float
-      description: "significant_body_strikes_landed_percentage"
+      description: "significant body strikes landed percentage"
+      data_tests:
+        - percentage_test
+    - name: significant_leg_strikes_landed_percentage
+      data_type: float
+      description: "significant leg strikes landed percentage"
+      data_tests:
+        - percentage_test
     - name: significant_distance_strikes_landed_percentage
       data_type: float
-      description: "significant_distance_strikes_landed_percentage"
-    - name: significant_distance_strikes_landed_percentage
-      data_type: float
-      description: "significant_distance_strikes_landed_percentage"
+      description: "significant distance strikes landed percentage"
+      data_tests:
+        - percentage_test
     - name: significant_clinch_strikes_landed_percentage
       data_type: float
-      description: "significant_clinch_strikes_landed_percentage"
+      description: "significant clinch strikes landed percentage"
+      data_tests:
+        - percentage_test
     - name: significant_ground_strikes_landed_percentage
       data_type: float
-      description: "significant_ground_strikes_landed_percentage"
+      description: "significant ground strikes landed percentage"
+      data_tests:
+        - percentage_test
 
 
 

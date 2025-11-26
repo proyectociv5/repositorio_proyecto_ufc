@@ -1,0 +1,245 @@
+models:
+  - name: mrt_ufc__dim_event
+    description: "Information about the event, granularity: event"
+    columns:
+      - name: event_id
+        data_type: varchar
+        description: "identificator of the event"
+        data_tests:
+        - unique
+        - not_null
+      - name: event_name
+        data_type: varchar
+        description: "name of each event"
+      - name: event_location
+        data_type: varchar
+        description: "location on which the event took place"
+
+  - name: mrt_ufc__dim_division
+    description: "different divisions of the UFC"
+    columns:
+      - name: division_id
+        data_type: varchar
+        description: "unique identifier of the divisions"
+        data_tests:
+        - unique
+        - not_null
+      - name: division_name
+        data_type: varchar
+        description: "name of the divisions of the UFC"
+
+  - name: mrt_ufc__dim_referee
+    description: "different referees of the UFC"
+    columns:
+      - name: referee_id
+        data_type: varchar
+        description: "unique identifier of the referees"
+        data_tests:
+        - unique
+        - not_null
+      - name: referee_name
+        data_type: varchar
+        description: "name of the referees of the UFC"
+
+  - name: mrt_ufc__dim_finish_method
+    description: "method by which the fight ends"
+    columns:
+      - name: method_id
+        data_type: varchar
+        description: "unique identifier of the method"
+        data_tests:
+        - unique
+        - not_null
+      - name: method_name
+        data_type: varchar
+        description: "name of the methods by which the fight ends"
+  
+  - name: mrt_ufc__dim_fighter
+    description: "fighter attributtes and global statistcs"
+    columns:
+      - name: fighter_id
+        data_type: varchar
+        description: "unique identifier of the fighter"
+        data_tests:
+        - unique
+        - not_null
+      - name: name
+        data_type: varchar
+        description: "name of the fighter"
+      - name: nick_name
+        data_type: varchar
+        description: "nickname of the fighter"
+      - name: date_of_birthay
+        data_type: varchar
+        description: "date of birthay"
+      - name: height
+        data_type: float
+        description: "height of the fighter in centimeters"
+      - name: reach
+        data_type: float
+        description: "reach of the fighter in centimeters"
+      - name: fighter_stance
+        data_type: varchar
+        description: "name of the normal stance of the fighter"
+
+  - name: mrt_ufc__dim_time
+    description: "all the dates used in the models"
+    columns:
+      - name: date_id
+        data_type: date
+        description: "year month and day"
+        data_tests:
+        - unique
+        - not_null
+      - name: year
+        data_type: date
+        description: "year of each date"
+      - name: month
+        data_type: date
+        description: "month of each date"
+      - name: day
+        data_type: date
+        description: "day of each date"
+  
+  
+  - name: mrt_ufc__fact_fight_performance 
+    description: "performance of the fighters in each fight, granularity: fighter"
+    columns:
+    - name: fight_performance_id
+      data_type: varchar
+      description: "surrogate key of the fight and fighter id"
+      data_tests:
+        - not_null
+        - unique
+    - name: fight_id
+      data_type: varchar
+      description: "identificator of the fight"
+    - name: fighter_id
+      data_type: varchar
+      description: "identificator of the fighter"
+
+    - name: division_id
+      data_type: varchar
+      description: "unique identifier for each division"
+    - name: referee_id
+      data_type: varchar
+      description: "unique identifier for each the referee"
+    - name: method_id
+      data_type: varchar
+      description: "unique identifier of the method"
+    - name: event_id
+      data_type: varchar
+      description: "identificator of the event"
+    - name: winner
+      data_type: boolean
+      description: "indicates whether the fighter wins in his fight or not"
+
+    - name: Knockdowns_landed
+      data_type: number
+      description: "Knockdowns landed by the fighter"
+    - name: significant_strikes_landed
+      data_type: float
+      description: "significant strikes landed by the fighter"
+    - name: significant_strikes_attempted
+      data_type: float
+      description: "significant strikes attempted by the fighter"
+    - name: significant_strikes_accuracy_percentage
+      data_type: float
+      description: "significant strikes accuracy percentage"
+    - name: total_strikes_landed
+      data_type: float
+      description: "total strikes landed by the fighter"
+    - name: total_strikes_attempted
+      data_type: float
+      description: "total strikes attempted by the fighter"
+    - name: total_strikes_accuracy_percentage
+      data_type: float
+      description: "total strikes accuracy percentage"
+    - name: takedowns_landed
+      data_type: float
+      description: "takedowns landed by the fighter"
+    - name: takedowns_attempted
+      data_type: float
+      description: "takedowns_attempted by the fighter"
+    - name: takedowns_accuracy_percentage
+      data_type: float
+      description: "takedowns accuracy percentage "
+    - name: submission_attempts
+      data_type: float
+      description: "submission attempts"
+    - name: control_over_the_rival_in_seconds
+      data_type: number
+      description: "control over the rival in seconds"
+    - name: significant_head_strikes_landed
+      data_type: float
+      description: "significant head strikes landed by the fighter"
+    - name: significant_head_strikes_attempted
+      data_type: float
+      description: "significant head strikes attempted by the fighter"
+    - name: significant_head_strikes_accuracy_percentage
+      data_type: float
+      description: "significant head strikes accuracy percentage"
+    - name: significant_body_strikes_landed
+      data_type: float
+      description: "significant body strikes landed by the fighter"
+    - name: significant_body_strikes_attempted
+      data_type: float
+      description: "significant body strikes attempted by the fighter"
+    - name: significant_body_strikes_accuracy_percentage
+      data_type: float
+      description: "significant body strikes accuracy percentage "
+    - name: leg_kicks_landed
+      data_type: float
+      description: "leg kicks landed by the fighter"
+    - name: leg_kicks_attempted
+      data_type: float
+      description: "leg kicks attempted by the fighter"
+    - name: leg_kicks_accuracy_percentage
+      data_type: float
+      description: "leg kicks accuracy percentage"
+    - name: significant_distance_strikes_landed
+      data_type: float
+      description: "significant distance strikes landed by the fighter"
+    - name: significant_distance_strikes_attempted
+      data_type: float
+      description: "significant distance strikes attempted by the fighter"
+    - name: significant_distance_strikes_accuracy_percentage
+      data_type: float
+      description: "significant distance strikes accuracy percentage"
+    - name: significant_clinch_strikes_landed
+      data_type: float
+      description: "significant clinch strikes landed by the fighter"
+    - name: significant_clinch_strikes_attempted
+      data_type: float
+      description: "significant clinch strikes attempted by the fighter"
+    - name: significant_clinch_strikes_accuracy_percentage
+      data_type: float
+      description: "significant clinch strikes accuracy percentage"
+    - name: significant_ground_strikes_landed
+      data_type: float
+      description: "significant ground strikes landed by the fighter"
+    - name: significant_ground_strikes_attempted
+      data_type: float
+      description: "significant ground strikes attempted by the fighter"
+    - name: significant_ground_strikes_accuracy_percentage
+      data_type: float
+      description: "significant ground strikes accuracy percentage"
+    - name: significant_head_strikes_landed_percentage
+      data_type: float
+      description: "significant head strikes landed percentage"
+    - name: significant_body_strikes_landed_percentage
+      data_type: float
+      description: "significant body strikes landed percentage"
+    - name: significant_distance_strikes_landed_percentage
+      data_type: float
+      description: "significant distance strikes landed percentage"
+    - name: significant_distance_strikes_landed_percentage
+      data_type: float
+      description: "significant distance strikes landed percentage"
+    - name: significant_clinch_strikes_landed_percentage
+      data_type: float
+      description: "significant clinch strikes landed percentage"
+    - name: significant_ground_strikes_landed_percentage
+      data_type: float
+      description: "significant ground strikes landed percentage"
+  

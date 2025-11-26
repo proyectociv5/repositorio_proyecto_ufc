@@ -45,7 +45,11 @@ models:
       marts: 
         +materialized: table
         +database: "ufc_daniel_gold"
-        
+      
+snapshots:
+  ufc_proyect:
+    +database: 'ufc_daniel_silver'
+    
 
       
     
